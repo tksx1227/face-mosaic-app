@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>モザイク加工</title>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <p><b>下のエリアに画像をドラッグアンドドロップしてください。</b></p>
+    <form action="" method="POST" enctype="multipart/form-data">
+        <div class="upload-area">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Drag and drop a file or click</p>
+            <input type="file" name="image" id="input-files" multiple>
+        </div>
+        <input type="submit" id="submit-btn" value="変換">
+    </form>
+
+    {% if paths %}
+        <div class="img-box">
+            <div class="img-before">
+                <img src="{{ paths[0] }}">
+                <p>Before</p>
+            </div>
+            <div class="img-after">
+                <img src="{{ paths[1] }}">
+                <p>After</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>
